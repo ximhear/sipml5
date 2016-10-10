@@ -7,7 +7,7 @@
 <!-- head -->
 <head>
     <title>Test API</title>
-    <script src="release/SIPml-api.js" type="text/javascript"> </script>
+    <script src="../release/SIPml-api.js" type="text/javascript"> </script>
 </head>
 
 <script type="text/javascript">
@@ -17,8 +17,8 @@
     window.onload = function () {
          SIPml.init(
              function(e){
-                stack =  new SIPml.Stack({ realm: 'sip2sip.info', impi: '12121212', impu: 'sip:12121212@sip2sip.info', password: 'mysecret',
-                    websocket_proxy_url: 'ws://192.168.0.9:5062',
+                stack =  new SIPml.Stack({ realm: '61.97.210.136', impi: '1002', impu: 'sip:1002@61.97.210.136', password: 'dunkin',
+                    //websocket_proxy_url: 'ws://192.168.0.9:5062',
                     events_listener: { events: '*', listener: function(e){
                                 var bStarted = (e.type === 'started');
                                 document.getElementById('btnRegister').disabled = !bStarted;

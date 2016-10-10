@@ -100,7 +100,7 @@
             messageSession = stack.newSession('message', {
                 events_listener: { events: '*', listener: onSessionEvent }
             });
-            messageSession.send('0039', 'P�che � la moule', 'text/plain;charset=utf-8');
+            messageSession.send('1001', '안녕하세요.', 'text/plain;charset=utf-8');
         }
     }
 
@@ -158,9 +158,10 @@
     function call() {
         if(callSession){
             callSession.hangup();
+            callSession = null;
         }
         else{
-            callSession = stack.newSession('call-audiovideo', {
+            callSession = stack.newSession('call-audio', {
                 video_local: document.getElementById('video_local'),
                 video_remote: document.getElementById('video_remote'),
                 sip_caps: [
@@ -178,7 +179,7 @@
                 console.info('call event = ' + e.type);
             });
 
-            callSession.call('+33600000000');
+            callSession.call('1001');
         }
     }
 

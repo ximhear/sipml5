@@ -9357,12 +9357,13 @@ tsip_dialog_invite.prototype.send_offer = function(f, c) {
         }
         if ((c || f) || ((this.o_msession_mgr && this.o_msession_mgr.b_state_changed) || (this.e_state == tsip_dialog_state_e.INITIAL))) {
             if (!this.o_action_curr || !this.o_action_curr.o_payload) {
-                var b = this.o_msession_mgr.get_lo();
-                g = (b == null);
-                if (b) {
-                    var a = b.toString();
-                    d.add_content(new String(a), "application/sdp")
-                }
+            // gzonelee commented.
+//                var b = this.o_msession_mgr.get_lo();
+//                g = (b == null);
+//                if (b) {
+//                    var a = b.toString();
+//                    d.add_content(new String(a), "application/sdp")
+//                }
             }
         }
         if (this.stimers.i_timeout) {
@@ -10162,7 +10163,8 @@ function c0000_Started_2_Outgoing_X_oINVITE(a) {
     var d = a[0];
     var b = a[2];
     if (!d.o_msession_mgr) {
-        d.o_msession_mgr = d.new_msession_mgr(b ? b.media.e_type : tmedia_type_e.AUDIO_VIDEO, d.get_stack().network.s_local_ip, false, true)
+            // gzonelee commented.
+//        d.o_msession_mgr = d.new_msession_mgr(b ? b.media.e_type : tmedia_type_e.AUDIO_VIDEO, d.get_stack().network.s_local_ip, false, true)
     }
     d.b_is_client = true;
     d.b_is_transf = (d.get_session().i_id_parent != tsip_session.prototype.__i_session_id_invalid);
